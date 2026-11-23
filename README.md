@@ -151,3 +151,68 @@ Future enhancements could include:
 This project reflects practical analytical workflows used in SaaS finance, revenue operations, and finance systems environments.
 
 It demonstrates how SQL can support recurring revenue reporting, accounts receivable management, transaction reconciliation, and operational decision-making while reducing reliance on manual spreadsheet analysis.
+
+## Key Business Findings
+
+This project analyzes a synthetic SaaS dataset containing 5,700 records across customers, subscriptions, invoices, and payments. The analysis focuses on recurring revenue performance, customer segmentation, accounts receivable reconciliation, and financial data integrity.
+
+### 1. Recurring Revenue Performance
+
+- **Monthly Recurring Revenue (MRR):** $338,500
+- **Annualized Recurring Revenue (ARR):** $4,062,000
+- **Active Subscriptions:** 630
+- **Annual Billing MRR:** $174,750
+- **Monthly Billing MRR:** $163,750
+
+Annual billing accounts for approximately 51.6% of total normalized MRR, despite representing only one-third of active subscriptions.
+
+### 2. Customer Segmentation
+
+| Customer Segment | Active Subscriptions | MRR | Revenue Contribution |
+|---|---:|---:|---:|
+| SMB | 374 | $120,500 | 35.60% |
+| Mid-Market | 186 | $113,000 | 33.38% |
+| Enterprise | 70 | $105,000 | 31.02% |
+
+SMB customers represent the largest share of active subscriptions and recurring revenue. Enterprise subscriptions contribute approximately 31% of MRR despite representing only 11.1% of active subscriptions.
+
+### 3. Accounts Receivable and Payment Exceptions
+
+SQL reconciliation queries identified several categories of financial exceptions requiring investigation:
+
+- **188 invoices** marked Paid despite having outstanding balances.
+- Completed payments without invoice references, representing potential unapplied cash.
+- **133 failed credit card transactions**, totaling $185,250.
+- **169 pending payments**, totaling $89,000.
+- No payment overapplications identified in the baseline dataset.
+
+These findings demonstrate how SQL can support financial exception monitoring, payment reconciliation, and billing data-quality controls.
+
+### 4. Data Validation and Reproducibility
+
+The project was independently tested using a newly created PostgreSQL database.
+
+| Validation | Result |
+|---|---|
+| Database schema creation | Passed |
+| Synthetic data generation | Passed |
+| Customer segmentation queries | 4 passed |
+| Subscription revenue queries | 4 passed |
+| Payment reconciliation queries | 5 executed successfully |
+| Total synthetic records | 5,700 |
+
+All five SQL scripts executed successfully against the fresh database. The analytical results matched the original environment.
+
+The payment overapplication query returned zero records in the baseline dataset; a positive exception test would be needed to validate its detection behavior.
+
+### 5. Technical Skills Demonstrated
+
+- PostgreSQL relational database design
+- Primary and foreign key relationships
+- SQL joins and Common Table Expressions (CTEs)
+- Conditional aggregation and window functions
+- Financial reconciliation and exception reporting
+- SaaS subscription analytics, MRR, and ARR calculations
+- Data validation and reproducible SQL workflows
+
+**Business application:** The project demonstrates how SQL can transform billing, subscription, and payment records into actionable financial reporting and operational controls.
