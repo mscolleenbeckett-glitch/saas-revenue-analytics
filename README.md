@@ -15,6 +15,7 @@ The objective is to demonstrate how SQL can transform transactional billing and 
 **SQL techniques:** Joins, Common Table Expressions (CTEs), window functions, conditional aggregation, filtering, grouping, and financial calculations.
 
 ## Database Structure
+![Database Relationship Diagram](database_erd.png)
 
 The database consists of four related tables:
 
