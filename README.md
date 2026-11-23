@@ -205,6 +205,16 @@ All five SQL scripts executed successfully against the fresh database. The analy
 
 The payment overapplication query returned zero records in the baseline dataset; a positive exception test would be needed to validate its detection behavior.
 
+### Positive Exception Testing
+
+To validate payment overapplication detection, a temporary completed payment of $1,600 was inserted against a $1,500 invoice in a separate test database.
+
+The SQL reconciliation query correctly identified the $100 overpayment.
+
+The test transaction was subsequently rolled back, and a verification query confirmed the temporary payment record no longer existed.
+
+**Result: Passed - payment overapplication detection and transaction rollback verified.**
+
 ### 5. Technical Skills Demonstrated
 
 - PostgreSQL relational database design
